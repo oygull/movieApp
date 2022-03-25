@@ -237,7 +237,7 @@ img{
   width: 300px !important;
 }
 .drama-list{
-  width: 90%;
+  width: 1200px;
   list-style: none;
   display: flex;
   overflow-x: scroll;
