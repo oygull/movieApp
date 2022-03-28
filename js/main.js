@@ -157,7 +157,6 @@ var owl = $('.owl-carousel');
 owl.owlCarousel({
     center: false,
     items: 10,
-    loop: true,
     nav:true,
     margin:20,
     responsive:{
@@ -219,10 +218,14 @@ let elSearch = document.getElementById('searchInput');
 let elHero = document.getElementById('hero');
 let yourSearchList = document.getElementById('yourSearchList');
 let yourSearch = document.getElementById('yourSearch');
+
 yourSearch.style.display='none';
 elHero.style.display='block';
-elSearch.addEventListener('keyup', searchMovie)
-function searchMovie(){
+let firstForm = document.getElementById('firstForm');
+firstForm.addEventListener('submit', searchMovie);
+
+function searchMovie(e){
+  e.preventDefault();
   yourSearch.style.display='block';
   yourSearchList.innerHTML='';
   elHero.style.display='none';
@@ -233,5 +236,27 @@ function searchMovie(){
   }else{
     yourSearchList.style.display='none'
   }
-
 }
+
+let elSearchBtn = document.getElementById('searchBtn');
+let elForm = document.getElementById('searchForm');
+let elSelect = document.getElementById('selectForm');
+let startYear = document.getElementById('startYear');
+let endYear = document.getElementById('endYear');
+let sortedUl = document.getElementById('sortedUl');
+let movieTitle = document.getElementById('movieTitle')
+
+elForm.addEventListener('submit',(e)=>{
+  e.preventDefault();
+  let categoryValue = elSelect.value;
+  let start= startYear.value;
+  let end = endYear.value;
+  let Mtitle = movieTitle.value;
+  let newSortedArr = movies.filter((item)=>{
+    if(categoryValue==item.categories && start<=item.year<=end && Mtitle==item.title){
+      return item
+    }
+  } );
+  console.log(newSortedArr);
+  // showCategory(sortedUl,newSortedArr);
+})

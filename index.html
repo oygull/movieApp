@@ -20,8 +20,9 @@
     <div class="container">
       <a class="navbar-brand"><img src="images/logo.svg" alt="logo" height="40px"></a>
       <div class="d-flex">
-        <form class="d-flex nav-form">
+        <form id="firstForm" class="d-flex nav-form">
           <input id="searchInput" class="form-control me-2" type="search" placeholder="What do you want to watch?" aria-label="Search">
+          <button type="submit" class="btn btn-primary">Search</button>
         </form>
         <div class="btns">
           <button  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="wathlist">
@@ -71,7 +72,7 @@
   
   <div id="yourSearch" class="your-search">
     <div class="container">
-      <ul id="yourSearchList" class="your-search-list">
+      <ul id="yourSearchList" >
       </ul>
     </div>
   
@@ -95,7 +96,37 @@
     <h1 class="title">All Movies</h1>
     <div class="content">
       <div class="main-content">
-        <div class="content-header"></div>
+        <div class="content-header">
+          <form class="search-form" id="searchForm">
+            <select id="selectForm" required>
+              <option>All</option>
+              <option>Drama</option>
+              <option>Comedy</option>
+              <option>Documentary</option>
+              <option>Music</option>
+              <option>Thriller</option>
+              <option>Sport</option>
+              <option>Crime</option>
+              <option>Fantasy</option>
+              <option>Fantasy</option>
+              <option>Family</option>
+              <option>Romance</option>
+              <option>Action</option>
+              <option>Mystery</option>
+              <option>Sci-Fi</option>
+              <option>Adventure</option>
+              <option>History</option>
+            </select>
+            <input id="movieTitle" type="text">
+            <input min="1990" max="2018" id="startYear" type="number">
+            <input min="1990" max="2018" id="endYear" type="number">
+            <button type="submit" class="searchBtn btn btn-primary">Search</button>
+          </form>
+ <ul id="sortedUl">
+
+ </ul>
+         
+        </div>
         <div class="movies-wrapper">
           <ul id="movieList" class="movies-list">
           </ul>

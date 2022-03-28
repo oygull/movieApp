@@ -77,7 +77,7 @@ img{
   z-index: 90;
 }
 .navbar{
-  background-color: rgba(0, 0, 0, 0.89) !important;
+  background-color: #000000 !important;
   position: fixed;
   height: 70px;
   z-index: 100;
@@ -349,4 +349,22 @@ ul{
   margin-top: 40px;
   display: flex;
   overflow-x: hidden;
+}
+#yourSearchList{
+  margin-top: 50px;
+}
+.search-form input{
+  height: 30px;
+  width: 160px;
+  margin: 10px;
+}
+.search-form select{
+  height: 30px;
+  width: 160px;
+  margin: 10px;
+}
+.searchBtn{
+  height: 30px;
+  width: 160px;
+  margin: 10px;
 }
