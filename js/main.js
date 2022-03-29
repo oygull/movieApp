@@ -186,33 +186,44 @@ owl.on('mousewheel', '.owl-stage', function (e) {
 
 
    
-let elSliderItem = document.getElementsByClassName("slider__item");
-let elSliderBox = document.getElementsByClassName("slider__imgbox");
-let elPrev = document.getElementById("prevBtn");
-let elNext = document.getElementById("nextBtn");
-let index = 1;
-mySlides();
 
+let leftBtn = document.querySelector('#prevBtn')
+let rightBtn = document.querySelector('#nextBtn')
+let itemCard = document.querySelectorAll('.slider__item li')
+let moviesList= document.querySelector('.sliderL')
 
-function mySlides() {
-  if (index > elSliderItem.length){
-    index = 1
-  }    
-  if (index < 1) {
-    index = elSliderItem.length
-  }
-  for (i = 0; i < elSliderItem.length; i++) {
-    elSliderItem[i].style.display = "none";  
-  }
-  elSliderItem[index-1].style.display = "block"; 
+let idx =0;
+
+function featureSlider() {
+    if(idx > itemCard.length-4){
+        idx = 0;
+    }
+    else if(idx < 0){
+        idx = itemCard-4
+    }
+    moviesList.style.transform =`translateX(${-idx*320}px)`
 }
 
-elPrev.addEventListener("click", ()=>{
-  mySlides(index -= 1);
+rightBtn.addEventListener('click', ()=> {
+    idx++;
+    resetInter();
+    featureSlider();
 })
-elNext.addEventListener("click", ()=>{
-  mySlides(index += 1);
+leftBtn.addEventListener('click', ()=> {
+    idx--;
+    resetInter();
+    featureSlider();
 })
+
+let interval = setInterval(run, 3000);
+
+function run() {
+    idx++;
+    featureSlider();
+}
+function resetInter() {
+    clearInterval(interval);
+}
 
 let elSearch = document.getElementById('searchInput');
 let elHero = document.getElementById('hero');
@@ -260,3 +271,4 @@ elForm.addEventListener('submit',(e)=>{
   console.log(newSortedArr);
   // showCategory(sortedUl,newSortedArr);
 })
+
